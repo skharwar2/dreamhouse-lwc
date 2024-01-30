@@ -71,8 +71,8 @@
 		<delete dir="${basedir}/static-analysis/sfdx/apex/" />
 		<mkdir dir="${basedir}/static-analysis/sfdx/apex/" />
 		<exec executable="${j.sfdx.command}" failonerror="false" resultproperty="opperation.code" >
-			<arg value="force:apex:test:run" />
-			<arg value="-u" />
+			<arg value="apex:run:test" />
+			<arg value="-o" />
 			<arg value="${sf.org.aliases}" />
 			<arg value="-c" />
 			<arg value="-l" />
@@ -81,6 +81,7 @@
 			<arg value="junit" />
 			<arg value="-d" />
 			<arg value="${basedir}/static-analysis/sfdx/apex/" />
+			<arg value="--synchronous" />
 		</exec>
 		<echo>${opperation.code}</echo> 
 		<record name="deployStatus.txt" action="stop" />

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="force.apex" timestamp="2024-01-30T11:18:59.000Z" hostname="https://miami-beans-4162-dev-ed.scratch.my.salesforce.com" tests="11" failures="0"  errors="0"  time="2.24">
+        <properties>
+            <property name="outcome" value="Successful"/>
+            <property name="testsRan" value="11"/>
+            <property name="passing" value="11"/>
+            <property name="failing" value="0"/>
+            <property name="skipped" value="0"/>
+            <property name="passRate" value="100%"/>
+            <property name="failRate" value="0%"/>
+            <property name="testStartTime" value="Tue Jan 30 2024 4:48:59 pm"/>
+            <property name="testExecutionTime" value="2.24 s"/>
+            <property name="testTotalTime" value="2.24 s"/>
+            <property name="commandTime" value="0.21 s"/>
+            <property name="hostname" value="https://miami-beans-4162-dev-ed.scratch.my.salesforce.com"/>
+            <property name="orgId" value="00DH40000000qX0MAI"/>
+            <property name="username" value="test-tfkszobsmeh1@example.com"/>
+            <property name="testRunId" value="707H4000001GuN8"/>
+            <property name="userId" value="005H4000000LGGQIA4"/>
+            <property name="coveredLines" value="133"/>
+            <property name="testRunCoverage" value="99%"/>
+            <property name="orgWideCoverage" value="98%"/>
+        </properties>
+        <testcase name="blankAddress" classname="GeocodingServiceTest" time="0.01">
+        </testcase>
+        <testcase name="errorResponse" classname="GeocodingServiceTest" time="0.01">
+        </testcase>
+        <testcase name="successResponse" classname="GeocodingServiceTest" time="0.01">
+        </testcase>
+        <testcase name="importSampleData" classname="TestSampleDataController" time="0.25">
+        </testcase>
+        <testcase name="createFileFailsWhenIncorrectBase64Data" classname="FileUtilitiesTest" time="0.12">
+        </testcase>
+        <testcase name="createFileFailsWhenIncorrectFilename" classname="FileUtilitiesTest" time="0.27">
+        </testcase>
+        <testcase name="createFileFailsWhenIncorrectRecordId" classname="FileUtilitiesTest" time="0.21">
+        </testcase>
+        <testcase name="createFileSucceedsWhenCorrectInput" classname="FileUtilitiesTest" time="0.25">
+        </testcase>
+        <testcase name="testGetPagedPropertyList" classname="TestPropertyController" time="0.74">
+        </testcase>
+        <testcase name="testGetPicturesNoResults" classname="TestPropertyController" time="0.05">
+        </testcase>
+        <testcase name="testGetPicturesWithResults" classname="TestPropertyController" time="0.33">
+        </testcase>
+    </testsuite>
+</testsuites>
