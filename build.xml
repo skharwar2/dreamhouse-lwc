@@ -1,0 +1,185 @@
+<project name="Dreamforce" default="pmd" basedir="." xmlns:sf="antlib:com.salesforce" >
+
+    <property file="build.properties" />
+    <property environment="env" />
+	<path id="ant.additions.classpath">
+		<fileset dir="${basedir}/lib" />
+	</path>
+	
+	<taskdef resource="net/sf/antcontrib/antlib.xml">
+		<classpath>
+			<pathelement location="${basedir}/lib/ant-contrib-1.0b3.jar" />
+		</classpath>
+	</taskdef>
+	<!-- Library for PMD  -->
+	<path id="pmd.classpath">
+	    <fileset dir="${env.PMD_HOME}\lib">
+	        <include name="*.jar" />
+	    </fileset>
+	</path>
+
+    <!-- Run PMD test and Generate XML report -->
+	<taskdef name="pmd" classname="net.sourceforge.pmd.ant.PMDTask" classpathref="pmd.classpath" />
+	<target name="pmd">
+		<pmd shortFilenames="true" rulesetfiles="${basedir}/config/PMD_Ruleset.xml"
+      failonerror="false" failOnRuleViolation="false" failuresPropertyName="true"
+      cacheLocation="${basedir}/static-analysis/pmd/cache" classpathref="pmd.classpath" >    
+			<formatter type="html" toFile="${basedir}/static-analysis/pmd/pmd.html">
+				<param name="linkPrefix" value="http://pmd.sourceforge.net/xref/" />
+			</formatter>
+			<fileset dir="${basedir}/force-app/main">
+				<include name="**/*.cls" />
+				<exclude name="**/fflib_*.cls" />
+			</fileset>
+			<fileset dir="${basedir}/force-app/main">
+				<include name="**/*.trigger" />
+			</fileset>
+			<fileset dir="${basedir}/force-app/main">
+                <include name="**/*.component" />
+            </fileset>
+			<fileset dir="${basedir}/force-app/main">
+                <include name="**/*.page" />
+            </fileset>
+		</pmd>
+	</target>
+	
+	<taskdef name="cpd" classname="net.sourceforge.pmd.cpd.CPDTask" classpathref="pmd.classpath" />
+	<target name="cpd">
+        <cpd minimumTokenCount="50" outputFile="${basedir}/static-analysis/pmd/cpd.xml" 
+        	encoding="UTF-8" format="xml" ignoreAnnotations="true" skipLexicalErrors="true" 
+        	language="apex" skipDuplicateFiles="true" >
+            <fileset dir="${basedir}/force-app/main">
+                <include name="**/*.cls" />
+            </fileset>
+            <fileset dir="${basedir}/force-app/main">
+                <include name="**/*.page" />
+            </fileset>
+            <fileset dir="${basedir}/force-app/main">
+                <include name="**/*.component" />
+            </fileset>
+			<fileset dir="${basedir}/force-app/main/default/lwc">
+                <include name="**/*.js" />
+            </fileset>
+			<fileset dir="${basedir}/force-app/main/default/lwc">
+                <include name="**/*.html" />
+            </fileset>
+        </cpd>
+    </target>
+
+	<target name="sfdx-test">
+		<record name="console.log" action="start" append="false" />
+		<delete dir="${basedir}/static-analysis/sfdx/apex/" />
+		<mkdir dir="${basedir}/static-analysis/sfdx/apex/" />
+		<exec executable="${j.sfdx.command}" failonerror="false" resultproperty="opperation.code" >
+			<arg value="force:apex:test:run" />
+			<arg value="-u" />
+			<arg value="${sf.org.aliases}" />
+			<arg value="-c" />
+			<arg value="-l" />
+			<arg value="RunLocalTests" />
+			<arg value="-r" />
+			<arg value="junit" />
+			<arg value="-d" />
+			<arg value="${basedir}/static-analysis/sfdx/apex/" />
+		</exec>
+		<echo>${opperation.code}</echo> 
+		<record name="deployStatus.txt" action="stop" />
+	</target>
+
+	<target name="sfdx-scanner">
+		<record name="console.log" action="start" append="false" />
+		<exec executable="${j.sfdx.command}" failonerror="false" resultproperty="opperation.code" >
+			<arg value="scanner:run" />
+			<arg value="-f" />
+			<arg value="xml" />
+			<arg value="-o" />
+			<arg value="${basedir}/static-analysis/sfdx/sfdx-scanner.xml" />
+			<arg value="-t" />
+			<arg value="${basedir}/force-app/main" />
+		</exec>
+		<echo>${opperation.code}</echo> 
+		<record name="deployStatus.txt" action="stop" />
+	</target>
+
+	<target name="sfdx-scanner-pmd">
+		<record name="console.log" action="start" append="false" />
+		<exec executable="${j.sfdx.command}" failonerror="false" resultproperty="opperation.code" >
+			<arg value="scanner:run" />
+			<arg value="-f" />
+			<arg value="xml" />
+			<arg value="-o" />
+			<arg value="${basedir}/static-analysis/sfdx/sfdx-pmd-scanner.xml" />
+			<arg value="-t" />
+			<arg value="${basedir}/force-app/main" />
+			<arg value="-c" />
+			<arg value="Security" />
+			<arg value="--pmdconfig" />
+			<arg value="${basedir}/config/PMD_Ruleset.xml" />
+			<arg value="-e" />
+			<arg value="pmd" />
+		</exec>
+		<echo>${opperation.code}</echo> 
+		<record name="deployStatus.txt" action="stop" />
+	</target>
+
+	<target name="lint-lwc">
+		<record name="console.log" action="start" append="false" />
+		<exec executable="npm.cmd" failonerror="false" resultproperty="opperation.code">
+			<arg value="run" />
+			<arg value="lint:lwc" />
+		</exec>
+		<echo>${opperation.code}</echo> 
+		<record name="deployStatus.txt" action="stop" />
+	</target>
+
+	<target name="sfdx-retirejs">
+		<record name="console.log" action="start" append="false" />
+		<exec
+			executable="${j.sfdx.command}"
+			failonerror="false"
+			resultproperty="opperation.code"
+		>
+			<arg value="scanner:run" />
+			<arg value="-f" />
+			<arg value="csv" />
+			<arg value="-o" />
+			<arg value="${basedir}/analysis/sfdx/retire-js.csv" />
+			<arg value="-t" />
+			<arg value="${basedir}/force-app/main" />
+			<arg value="-e" />
+			<arg value="retire-js" />
+		</exec>
+		<echo>${opperation.code}</echo> 
+		<record name="deployStatus.txt" action="stop" />
+	</target>
+
+	<!-- Run all Salesforce Test Cases and generate result into JUnit Format 
+		testLevel="RunSpecifiedTests" :: This setting fails if any class have code 
+		coverage less than 75% 
+	-->
+	<target name="runAllTest">
+	    <taskdef
+	        name="sfdeploy"
+	        classname="com.salesforce.ant.DeployWithXmlReportTask"
+	        classpathref="ant.additions.classpath"
+	        />
+		<record name="deployStatus.txt" action="start" append="false" />
+		<delete dir="${basedir}/static-analysis/apex/" />
+		<mkdir dir="${basedir}/static-analysis/apex/" />
+		<delete dir="${basedir}/src/classes/" />
+		<mkdir dir="${basedir}/src/classes/" />
+		<copy file="${basedir}/force-app/main/default/classes/BOUtils.cls" tofile="${basedir}/src/classes/BOUtils.cls"/>
+		<copy file="${basedir}/force-app/main/default/classes/BOUtils.cls-meta.xml" tofile="${basedir}/src/classes/BOUtils.cls-meta.xml"/>
+	    <sfdeploy
+	        username="${sf.username}"
+	        password="${sf.password}"
+	        serverurl="${sf.serverurl}"
+	        deployRoot="${basedir}/src"
+	        testLevel="RunLocalTests"
+	        junitreportdir="${basedir}/static-analysis/apex/" 
+			maxPoll ="${sf.maxPoll}">
+        </sfdeploy>
+		<record name="deployStatus.txt" action="stop"/>
+    </target>
+
+</project>

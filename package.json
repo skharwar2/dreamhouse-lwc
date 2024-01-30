@@ -6,6 +6,7 @@
         "lint": "eslint **/lwc/**/*.js",
         "test": "npm run test:unit",
         "test:unit": "sfdx-lwc-jest --skipApiVersionCheck",
+        "lint:lwc": "eslint **/lwc/** -f json -o ./static-analysis/eslint/eslint.json",
         "test:unit:watch": "sfdx-lwc-jest --watch --skipApiVersionCheck",
         "test:unit:debug": "sfdx-lwc-jest --debug --skipApiVersionCheck",
         "test:unit:coverage": "sfdx-lwc-jest --coverage --skipApiVersionCheck",
@@ -46,7 +47,6 @@
         "prettier": "^3.1.1",
         "prettier-plugin-apex": "^2.0.1"
     },
-    "dependencies": {},
     "volta": {
         "node": "18.17.0"
     }
