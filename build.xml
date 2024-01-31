@@ -24,12 +24,11 @@
 		<pmd shortFilenames="true" rulesetfiles="${basedir}/config/PMD_Ruleset.xml"
       failonerror="false" failOnRuleViolation="false" failuresPropertyName="true"
       cacheLocation="${basedir}/static-analysis/pmd/cache" classpathref="pmd.classpath" >    
-			<formatter type="html" toFile="${basedir}/static-analysis/pmd/pmd.html">
+			<formatter type="xml" toFile="${basedir}/static-analysis/pmd/pmd.xml">
 				<param name="linkPrefix" value="http://pmd.sourceforge.net/xref/" />
 			</formatter>
 			<fileset dir="${basedir}/force-app/main">
 				<include name="**/*.cls" />
-				<exclude name="**/fflib_*.cls" />
 			</fileset>
 			<fileset dir="${basedir}/force-app/main">
 				<include name="**/*.trigger" />

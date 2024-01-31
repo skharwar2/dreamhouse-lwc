@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.47.0" timestamp="2024-01-31T11:26:53.627">
+<file name="default\classes\FileUtilities.cls">
+<violation beginline="13" endline="13" begincolumn="13" endcolumn="34" rule="ApexCRUDViolation" ruleset="Security" externalInfoUrl="https://pmd.github.io/pmd-6.47.0/pmd_rules_apex_security.html#apexcrudviolation" priority="3">
+Validate CRUD permission before SOQL/DML operation
+</violation>
+<violation beginline="15" endline="20" begincolumn="30" endcolumn="13" rule="ApexCRUDViolation" ruleset="Security" externalInfoUrl="https://pmd.github.io/pmd-6.47.0/pmd_rules_apex_security.html#apexcrudviolation" priority="3">
+Validate CRUD permission before SOQL/DML operation
+</violation>
+<violation beginline="26" endline="26" begincolumn="13" endcolumn="39" rule="ApexCRUDViolation" ruleset="Security" externalInfoUrl="https://pmd.github.io/pmd-6.47.0/pmd_rules_apex_security.html#apexcrudviolation" priority="3">
+Validate CRUD permission before SOQL/DML operation
+</violation>
+</file>
+<file name="default\classes\FileUtilitiesTest.cls">
+<violation beginline="4" endline="22" begincolumn="17" endcolumn="5" rule="ApexUnitTestClassShouldHaveAsserts" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.47.0/pmd_rules_apex_bestpractices.html#apexunittestclassshouldhaveasserts" priority="3">
+Apex unit tests should System.assert() or assertEquals() or assertNotEquals()
+</violation>
+<violation beginline="25" endline="43" begincolumn="17" endcolumn="5" rule="ApexUnitTestClassShouldHaveAsserts" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.47.0/pmd_rules_apex_bestpractices.html#apexunittestclassshouldhaveasserts" priority="3">
+Apex unit tests should System.assert() or assertEquals() or assertNotEquals()
+</violation>
+<violation beginline="33" endline="33" begincolumn="20" endcolumn="40" rule="UnusedLocalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.47.0/pmd_rules_apex_bestpractices.html#unusedlocalvariable" priority="5">
+Variable 'contentDocumentLinkId' defined but not used
+</violation>
+<violation beginline="46" endline="67" begincolumn="17" endcolumn="5" rule="ApexUnitTestClassShouldHaveAsserts" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.47.0/pmd_rules_apex_bestpractices.html#apexunittestclassshouldhaveasserts" priority="3">
+Apex unit tests should System.assert() or assertEquals() or assertNotEquals()
+</violation>
+<violation beginline="57" endline="57" begincolumn="20" endcolumn="40" rule="UnusedLocalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.47.0/pmd_rules_apex_bestpractices.html#unusedlocalvariable" priority="5">
+Variable 'contentDocumentLinkId' defined but not used
+</violation>
+<violation beginline="70" endline="91" begincolumn="17" endcolumn="5" rule="ApexUnitTestClassShouldHaveAsserts" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.47.0/pmd_rules_apex_bestpractices.html#apexunittestclassshouldhaveasserts" priority="3">
+Apex unit tests should System.assert() or assertEquals() or assertNotEquals()
+</violation>
+<violation beginline="81" endline="81" begincolumn="20" endcolumn="40" rule="UnusedLocalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.47.0/pmd_rules_apex_bestpractices.html#unusedlocalvariable" priority="5">
+Variable 'contentDocumentLinkId' defined but not used
+</violation>
+</file>
+<file name="default\classes\GeocodingService.cls">
+<violation beginline="1" endline="72" begincolumn="27" endcolumn="3" rule="StdCyclomaticComplexity" ruleset="Design" externalInfoUrl="https://pmd.github.io/pmd-6.47.0/pmd_rules_apex_design.html#stdcyclomaticcomplexity" priority="3">
+The class 'GeocodingService' has a Standard Cyclomatic Complexity of 10 (Highest = 9).
+</violation>
+<violation beginline="5" endline="51" begincolumn="37" endcolumn="5" rule="CognitiveComplexity" ruleset="Design" externalInfoUrl="https://pmd.github.io/pmd-6.47.0/pmd_rules_apex_design.html#cognitivecomplexity" priority="3">
+The method 'geocodeAddresses(List&lt;GeocodingService.GeocodingAddress&gt;)' has a cognitive complexity of 16, current threshold is 15
+</violation>
+</file>
+<file name="default\classes\GeocodingServiceTest.cls">
+<violation beginline="12" endline="35" begincolumn="17" endcolumn="5" rule="ApexUnitTestClassShouldHaveAsserts" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.47.0/pmd_rules_apex_bestpractices.html#apexunittestclassshouldhaveasserts" priority="3">
+Apex unit tests should System.assert() or assertEquals() or assertNotEquals()
+</violation>
+<violation beginline="37" endline="55" begincolumn="17" endcolumn="5" rule="ApexUnitTestClassShouldHaveAsserts" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.47.0/pmd_rules_apex_bestpractices.html#apexunittestclassshouldhaveasserts" priority="3">
+Apex unit tests should System.assert() or assertEquals() or assertNotEquals()
+</violation>
+<violation beginline="57" endline="80" begincolumn="17" endcolumn="5" rule="ApexUnitTestClassShouldHaveAsserts" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.47.0/pmd_rules_apex_bestpractices.html#apexunittestclassshouldhaveasserts" priority="3">
+Apex unit tests should System.assert() or assertEquals() or assertNotEquals()
+</violation>
+</file>
+<file name="default\classes\PropertyController.cls">
+<violation beginline="16" endline="80" begincolumn="31" endcolumn="5" rule="ExcessiveParameterList" ruleset="Design" externalInfoUrl="https://pmd.github.io/pmd-6.47.0/pmd_rules_apex_design.html#excessiveparameterlist" priority="3">
+Avoid long parameter lists.
+</violation>
+<violation beginline="89" endline="96" begincolumn="43" endcolumn="9" rule="ApexCRUDViolation" ruleset="Security" externalInfoUrl="https://pmd.github.io/pmd-6.47.0/pmd_rules_apex_security.html#apexcrudviolation" priority="3">
+Validate CRUD permission before SOQL/DML operation
+</violation>
+<violation beginline="108" endline="114" begincolumn="16" endcolumn="9" rule="ApexCRUDViolation" ruleset="Security" externalInfoUrl="https://pmd.github.io/pmd-6.47.0/pmd_rules_apex_security.html#apexcrudviolation" priority="3">
+Validate CRUD permission before SOQL/DML operation
+</violation>
+</file>
+<file name="default\classes\SampleDataController.cls">
+<violation beginline="15" endline="19" begincolumn="42" endcolumn="9" rule="ApexCRUDViolation" ruleset="Security" externalInfoUrl="https://pmd.github.io/pmd-6.47.0/pmd_rules_apex_security.html#apexcrudviolation" priority="3">
+Validate CRUD permission before SOQL/DML operation
+</violation>
+<violation beginline="25" endline="25" begincolumn="9" endcolumn="23" rule="ApexCRUDViolation" ruleset="Security" externalInfoUrl="https://pmd.github.io/pmd-6.47.0/pmd_rules_apex_security.html#apexcrudviolation" priority="3">
+Validate CRUD permission before SOQL/DML operation
+</violation>
+<violation beginline="29" endline="33" begincolumn="45" endcolumn="9" rule="ApexCRUDViolation" ruleset="Security" externalInfoUrl="https://pmd.github.io/pmd-6.47.0/pmd_rules_apex_security.html#apexcrudviolation" priority="3">
+Validate CRUD permission before SOQL/DML operation
+</violation>
+<violation beginline="40" endline="40" begincolumn="9" endcolumn="26" rule="ApexCRUDViolation" ruleset="Security" externalInfoUrl="https://pmd.github.io/pmd-6.47.0/pmd_rules_apex_security.html#apexcrudviolation" priority="3">
+Validate CRUD permission before SOQL/DML operation
+</violation>
+<violation beginline="44" endline="48" begincolumn="43" endcolumn="9" rule="ApexCRUDViolation" ruleset="Security" externalInfoUrl="https://pmd.github.io/pmd-6.47.0/pmd_rules_apex_security.html#apexcrudviolation" priority="3">
+Validate CRUD permission before SOQL/DML operation
+</violation>
+<violation beginline="54" endline="54" begincolumn="9" endcolumn="24" rule="ApexCRUDViolation" ruleset="Security" externalInfoUrl="https://pmd.github.io/pmd-6.47.0/pmd_rules_apex_security.html#apexcrudviolation" priority="3">
+Validate CRUD permission before SOQL/DML operation
+</violation>
+</file>
+<file name="default\classes\TestPropertyController.cls">
+<violation beginline="21" endline="72" begincolumn="17" endcolumn="5" rule="ApexUnitTestClassShouldHaveAsserts" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.47.0/pmd_rules_apex_bestpractices.html#apexunittestclassshouldhaveasserts" priority="3">
+Apex unit tests should System.assert() or assertEquals() or assertNotEquals()
+</violation>
+<violation beginline="75" endline="86" begincolumn="17" endcolumn="5" rule="ApexUnitTestClassShouldHaveAsserts" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.47.0/pmd_rules_apex_bestpractices.html#apexunittestclassshouldhaveasserts" priority="3">
+Apex unit tests should System.assert() or assertEquals() or assertNotEquals()
+</violation>
+<violation beginline="89" endline="120" begincolumn="17" endcolumn="5" rule="ApexUnitTestClassShouldHaveAsserts" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.47.0/pmd_rules_apex_bestpractices.html#apexunittestclassshouldhaveasserts" priority="3">
+Apex unit tests should System.assert() or assertEquals() or assertNotEquals()
+</violation>
+</file>
+<file name="default\classes\TestSampleDataController.cls">
+<violation beginline="4" endline="16" begincolumn="17" endcolumn="5" rule="ApexUnitTestClassShouldHaveAsserts" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.47.0/pmd_rules_apex_bestpractices.html#apexunittestclassshouldhaveasserts" priority="3">
+Apex unit tests should System.assert() or assertEquals() or assertNotEquals()
+</violation>
+</file>
+</pmd>
